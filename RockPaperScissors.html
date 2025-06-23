@@ -46,30 +46,7 @@
         }
         
         
-        function playGame(){
-            let humanScore = 0;
-            let computerScore = 0;
-            for(let i = 0; i< 5; i++){
-                const score = playRound();
-                if(score === "Human"){
-                    humanScore++;
-                }
-                else{
-                    computerScore++;
-                }
-
-            }
-
-            if(humanScore>computerScore){
-                return `The score is human:${humanScore} to computer:${computerScore}, human wins!`;
-            }
-            else{
-                return `The score is computer:${computerScore} to human:${humanScore}, computer wins!`;
-
-            }
-        }
-                
-    console.log(playGame())
+       
 
 
     </script>
