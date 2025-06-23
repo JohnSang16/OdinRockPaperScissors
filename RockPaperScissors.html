@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin Rock Paper Scissors Game 1</title>
+</head>
+<body>
+    <script> 
+        function getComputerChoice(){
+        const num = Math.floor(Math.random()*3+1);
+        if(num === 1){
+            return "scissors";
+        }
+        else if(num === 2){
+            return "rock";
+        }
+        else{
+            return "paper";
+        }
+    }
+        function playRound(){
+        const userinput = prompt("Choose a hand").toLowerCase();
+        const computerChoice = getComputerChoice();
+    
+        
+        if (userinput === computerChoice) {
+        return "It's a tie!";
+    }
+        if (userinput === "scissors" && computerChoice === "paper" ||
+            userinput === "rock" && computerChoice === "scissors" ||
+            userinput === "paper" && computerChoice === "rock") {
+           
+            return "Human";
+    } 
+         else if (
+            userinput === "scissors" && computerChoice === "rock" ||
+            userinput === "rock" && computerChoice === "paper" ||
+            userinput === "paper" && computerChoice === "scissors"
+    ) {
+        return "Computer";
+    }
+    else {
+        return "Invalid input. Please choose rock, paper, or scissors.";
+    }
+        }
+        
+        
+        function playGame(){
+            let humanScore = 0;
+            let computerScore = 0;
+            for(let i = 0; i< 5; i++){
+                const score = playRound();
+                if(score === "Human"){
+                    humanScore++;
+                }
+                else{
+                    computerScore++;
+                }
+
+            }
+
+            if(humanScore>computerScore){
+                return `The score is human:${humanScore} to computer:${computerScore}, human wins!`;
+            }
+            else{
+                return `The score is computer:${computerScore} to human:${humanScore}, computer wins!`;
+
+            }
+        }
+                
+    console.log(playGame())
+
+
+    </script>
+</body>
+</html>
