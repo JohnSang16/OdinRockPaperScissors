@@ -19,8 +19,8 @@
             return "paper";
         }
     }
-        function playRound(){
-        const userinput = prompt("Choose a hand").toLowerCase();
+        function playRound(userinput){
+        userinput = userinput.toLowerCase();
         const computerChoice = getComputerChoice();
     
         
@@ -31,14 +31,14 @@
             userinput === "rock" && computerChoice === "scissors" ||
             userinput === "paper" && computerChoice === "rock") {
            
-            return "Human";
+            return `You picked ${userinput} and computer picked ${computerChoice} so you win!`;
     } 
          else if (
             userinput === "scissors" && computerChoice === "rock" ||
             userinput === "rock" && computerChoice === "paper" ||
             userinput === "paper" && computerChoice === "scissors"
     ) {
-        return "Computer";
+            return `You picked ${userinput} and computer picked ${computerChoice} so you lose!`;
     }
     else {
         return "Invalid input. Please choose rock, paper, or scissors.";
@@ -48,7 +48,7 @@
     const body = document.querySelector("body");
        const rockBtn = document.createElement("button");
        rockBtn.textContent = "Rock";
-          const paperBtn = document.createElement("button");
+       const paperBtn = document.createElement("button");
        paperBtn.textContent = "Paper";
        const scissorsBtn = document.createElement("button");
        scissorsBtn.textContent = "Scissors";
@@ -57,6 +57,16 @@
         body.appendChild(rockBtn);
         body.appendChild(paperBtn);
         body.appendChild(scissorsBtn);
+
+        rockBtn.addEventListener("click", function(){
+           console.log(playRound("rock"));
+        });
+        paperBtn.addEventListener("click", function(){
+           console.log(playRound("paper"));
+        });
+        scissorsBtn.addEventListener("click", function(){
+           console.log(playRound("scissors"));
+        });
 
 
     </script>
