@@ -108,14 +108,20 @@
         scissorsBtn.disabled = true;
 
     }
+
+    function restart(){
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorsBtn.disabled = false;
+        humanCounter = 0;
+        compCounter = 0;
+        ul.innerHTML = "";
+    }
     
     
         rockBtn.addEventListener("click", function(){
            playRound("rock");
            gameWinner();
-           if (gameWinner()){
-            return;
-           }
         });
         paperBtn.addEventListener("click", function(){
            playRound("paper");
@@ -125,8 +131,11 @@
            playRound("scissors");
            gameWinner();
         });
+        restartBtn.addEventListener("click", function(){
+            restart();
+        })
 
-          body.appendChild(h4);
+        body.appendChild(h4);
         body.appendChild(rockBtn);
         body.appendChild(paperBtn);
         body.appendChild(scissorsBtn);
