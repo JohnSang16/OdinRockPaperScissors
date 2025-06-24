@@ -26,6 +26,8 @@
     paperBtn.textContent = "Paper";
     const scissorsBtn = document.createElement("button");
     scissorsBtn.textContent = "Scissors";
+    const restartBtn = document.createElement("button");
+    restartBtn.textContent = "Restart"
    
         let humanCounter = 0;
         let compCounter = 0;
@@ -107,13 +109,7 @@
 
     }
     
-        body.appendChild(h4);
-        body.appendChild(rockBtn);
-        body.appendChild(paperBtn);
-        body.appendChild(scissorsBtn);
-        body.appendChild(log);
-        log.appendChild(ul);
-
+    
         rockBtn.addEventListener("click", function(){
            playRound("rock");
            gameWinner();
@@ -129,6 +125,14 @@
            playRound("scissors");
            gameWinner();
         });
+
+          body.appendChild(h4);
+        body.appendChild(rockBtn);
+        body.appendChild(paperBtn);
+        body.appendChild(scissorsBtn);
+        body.appendChild(restartBtn);
+        body.appendChild(log);
+        log.appendChild(ul);
 
 
     </script>
