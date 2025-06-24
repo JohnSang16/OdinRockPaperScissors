@@ -8,11 +8,8 @@
 <body>
 
     <h1 style = "text-decoration: underline;">Rock Paper Scissors Game: </h1>
-    <h4>game log:
-        <ul>
-
-        </ul>
-    </h4>
+    <h3>play to 5 games</h3>
+    
 
      <script> 
         function getComputerChoice(){
@@ -65,6 +62,9 @@
         
     const body = document.querySelector("body");
     const ul = document.querySelector("ul");
+    const h4 = document.createElement("h4");
+    h4.textContent = "Choose a hand:";
+    body.appendChild(h4);
        const rockBtn = document.createElement("button");
        rockBtn.textContent = "Rock";
        const paperBtn = document.createElement("button");
