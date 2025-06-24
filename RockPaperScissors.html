@@ -27,8 +27,8 @@
     const scissorsBtn = document.createElement("button");
     scissorsBtn.textContent = "Scissors";
    
-        const humanCounter = 0;
-        const compCounter = 0;
+        let humanCounter = 0;
+        let compCounter = 0;
         function getComputerChoice(){
         const num = Math.floor(Math.random()*3+1);
         if(num === 1){
@@ -57,10 +57,11 @@
             userinput === "paper" && computerChoice === "rock") {
 
            humanCounter++; 
-           return humanCounter;
            const humanlist = document.createElement("li");
            humanlist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win! Counter: Human: ${humanCounter}` ;
            ul.appendChild(humanlist);
+           return humanCounter;
+
     } 
          else if (
             userinput === "scissors" && computerChoice === "rock" ||
@@ -68,10 +69,11 @@
             userinput === "paper" && computerChoice === "scissors"
     ) {
             compCounter++;
-            return compCounter;
             const complist = document.createElement("li");
             complist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win! Counter: Computer: ${compCounter}`;
             ul.appendChild(complist);
+            return compCounter;
+
     }
     else {
         const invalidinput = document.createElement("li");
@@ -79,6 +81,19 @@
         ul.appendChild(invalidinput);
     }
         }
+        
+        function gameWinner(){
+        if(compCounter == 5 ){
+            const compWin = document.createElement("li");
+            compWin.textContent = "Computer Wins!"
+            ul.appendChild(compWin);
+        }
+        else{
+            const humanWin = document.createElement("li");
+            humanWin.textContent = "Human Wins!"
+            ul.appendChild(humanWin);
+        }
+    }
   
     
         body.appendChild(h4);
