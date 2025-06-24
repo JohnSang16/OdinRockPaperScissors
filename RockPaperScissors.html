@@ -12,6 +12,22 @@
     
 
      <script> 
+              
+    const body = document.querySelector("body");
+    const ul = document.createElement("ul");
+    const h4 = document.createElement("h4");
+    h4.textContent = "Choose a hand:";
+    const log = document.createElement("h4");
+    log.textContent = "game log:";
+
+    const rockBtn = document.createElement("button");
+    rockBtn.textContent = "Rock";
+    const paperBtn = document.createElement("button");
+    paperBtn.textContent = "Paper";
+    const scissorsBtn = document.createElement("button");
+    scissorsBtn.textContent = "Scissors";
+   
+
         function getComputerChoice(){
         const num = Math.floor(Math.random()*3+1);
         if(num === 1){
@@ -59,23 +75,14 @@
         ul.appendChild(invalidinput);
     }
         }
-        
-    const body = document.querySelector("body");
-    const ul = document.querySelector("ul");
-    const h4 = document.createElement("h4");
-    h4.textContent = "Choose a hand:";
-    body.appendChild(h4);
-       const rockBtn = document.createElement("button");
-       rockBtn.textContent = "Rock";
-       const paperBtn = document.createElement("button");
-       paperBtn.textContent = "Paper";
-       const scissorsBtn = document.createElement("button");
-       scissorsBtn.textContent = "Scissors";
+  
     
-       
+        body.appendChild(h4);
         body.appendChild(rockBtn);
         body.appendChild(paperBtn);
         body.appendChild(scissorsBtn);
+        body.appendChild(log);
+        log.appendChild(ul);
 
         rockBtn.addEventListener("click", function(){
            playRound("rock");
