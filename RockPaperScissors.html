@@ -87,14 +87,25 @@
             const compWin = document.createElement("li");
             compWin.textContent = "Computer Wins!"
             ul.appendChild(compWin);
+            disableButtons();
+            return true;
         }
         else if (compCounter != 5 && humanCounter == 5){
             const humanWin = document.createElement("li");
             humanWin.textContent = "Human Wins!"
             ul.appendChild(humanWin);
+            disableButtons();
+            return true;
         }
+        return false;
     }
   
+    function disableButtons(){
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+
+    }
     
         body.appendChild(h4);
         body.appendChild(rockBtn);
@@ -106,6 +117,9 @@
         rockBtn.addEventListener("click", function(){
            playRound("rock");
            gameWinner();
+           if (gameWinner()){
+            return;
+           }
         });
         paperBtn.addEventListener("click", function(){
            playRound("paper");
