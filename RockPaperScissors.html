@@ -9,7 +9,13 @@
 
     <h1 style = "text-decoration: underline;">Rock Paper Scissors Game: </h1>
     <h3>Choose a hand:</h3>
-    <script> 
+    <h4>game log:
+        <ul>
+
+        </ul>
+    </h4>
+
+     <script> 
         function getComputerChoice(){
         const num = Math.floor(Math.random()*3+1);
         if(num === 1){
@@ -28,29 +34,38 @@
     
         
         if (userinput === computerChoice) {
-        return "It's a tie!";
+             
+        const tie = document.createElement("li");
+        tie.textContent =  "It's a tie!";
+        ul.appendChild(tie);
     }
-        if (userinput === "scissors" && computerChoice === "paper" ||
+        else if (userinput === "scissors" && computerChoice === "paper" ||
             userinput === "rock" && computerChoice === "scissors" ||
             userinput === "paper" && computerChoice === "rock") {
 
             
-           
-            return `You picked ${userinput} and computer picked ${computerChoice} so you win!`;
+           const humanlist = document.createElement("li");
+           humanlist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win!`;
+           ul.appendChild(humanlist);
     } 
          else if (
             userinput === "scissors" && computerChoice === "rock" ||
             userinput === "rock" && computerChoice === "paper" ||
             userinput === "paper" && computerChoice === "scissors"
     ) {
-            return `You picked ${userinput} and computer picked ${computerChoice} so you lose!`;
+            const complist = document.createElement("li");
+           complist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win!`;
+           ul.appendChild(complist);
     }
     else {
-        return "Invalid input. Please choose rock, paper, or scissors.";
+        const invalidinput = document.createElement("li");
+        invalidinput.textContent = "Invalid input. Please choose rock, paper, or scissors.";
+        ul.appendChild(invalidinput);
     }
         }
         
     const body = document.querySelector("body");
+    const ul = document.querySelector("ul");
        const rockBtn = document.createElement("button");
        rockBtn.textContent = "Rock";
        const paperBtn = document.createElement("button");
@@ -64,23 +79,17 @@
         body.appendChild(scissorsBtn);
 
         rockBtn.addEventListener("click", function(){
-           console.log(playRound("rock"));
+           playRound("rock");
         });
         paperBtn.addEventListener("click", function(){
-           console.log(playRound("paper"));
+           playRound("paper");
         });
         scissorsBtn.addEventListener("click", function(){
-           console.log(playRound("scissors"));
+           playRound("scissors");
         });
 
 
     </script>
-
-    <h4>game log:
-        <ul>
-
-        </ul>
-    </h4>
 
 </body>
 </html>
