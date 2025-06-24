@@ -27,7 +27,8 @@
     const scissorsBtn = document.createElement("button");
     scissorsBtn.textContent = "Scissors";
    
-
+        const humanCounter = 0;
+        const compCounter = 0;
         function getComputerChoice(){
         const num = Math.floor(Math.random()*3+1);
         if(num === 1){
@@ -55,9 +56,10 @@
             userinput === "rock" && computerChoice === "scissors" ||
             userinput === "paper" && computerChoice === "rock") {
 
-            
+           humanCounter++; 
+           return humanCounter;
            const humanlist = document.createElement("li");
-           humanlist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win!`;
+           humanlist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win! Counter: Human: ${humanCounter}` ;
            ul.appendChild(humanlist);
     } 
          else if (
@@ -65,13 +67,15 @@
             userinput === "rock" && computerChoice === "paper" ||
             userinput === "paper" && computerChoice === "scissors"
     ) {
+            compCounter++;
+            return compCounter;
             const complist = document.createElement("li");
-           complist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win!`;
-           ul.appendChild(complist);
+            complist.textContent =`You picked ${userinput} and computer picked ${computerChoice} so you win! Counter: Computer: ${compCounter}`;
+            ul.appendChild(complist);
     }
     else {
         const invalidinput = document.createElement("li");
-        invalidinput.textContent = "Invalid input. Please choose rock, paper, or scissors.";
+        invalidinput.textContent = "Invalid input. Please choose rock, paper, or scissors. ";
         ul.appendChild(invalidinput);
     }
         }
